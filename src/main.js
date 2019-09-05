@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 // 导入MUI
 import './lib/mui/css/mui.min.css'
+import './lib/mui/css/icons-extra.css'
 // 按需导入MintUI的组件
 import { Header } from 'mint-ui'
 import 'mint-ui/lib/style.css'
