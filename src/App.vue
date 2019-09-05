@@ -1,6 +1,11 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
+  <div id="app" class="app-container">
+<!--    顶部-->
+    <mt-header fixed title="Fcant开发总部"></mt-header>
+<!--    内容-->
+
+<!--    底部-->
+
     <router-view/>
   </div>
 </template>
@@ -12,12 +17,7 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app-container{
+  padding-top: 40px;
 }
 </style>
