@@ -34,3 +34,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 2. 底部Tabbar区域使用MUI的Tabbar.html
 3. 使用MUI其他样式图标时要导入相应的样式文件
 4. 内容区域通过router-view路由管理内容
+5. 首页轮播图使用MIntUI的Swipe, SwipeItem组件

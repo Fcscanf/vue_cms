@@ -7,10 +7,12 @@ import router from './router'
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
 // 按需导入MintUI的组件
-import { Header } from 'mint-ui'
+import {Header, Swipe, SwipeItem} from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
 Vue.component(Header.name, Header)
+Vue.component(Swipe.name, Swipe)
+Vue.component(SwipeItem.name, SwipeItem)
 
 Vue.config.productionTip = false
 
