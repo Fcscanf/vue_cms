@@ -35,3 +35,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 3. 使用MUI其他样式图标时要导入相应的样式文件
 4. 内容区域通过router-view路由管理内容
 5. 首页轮播图使用MIntUI的Swipe, SwipeItem组件
+6. 使用vue-resource导入轮播图数据(图片资源加载)
+``` bash
+cnpm i vue-resource -S
+```
