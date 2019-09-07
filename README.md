@@ -40,3 +40,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 cnpm i vue-resource -S
 ```
 7. 绘制新闻资讯界面使用MUI中的media-list.html
+8. 为项目安装时间插件
+```bash
+cnpm i moment -S
+```
