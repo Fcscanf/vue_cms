@@ -4,6 +4,7 @@ import HomeContainer from '../components/tabbar/HomeContainer'
 import MemberContainer from '../components/tabbar/MemberContainer'
 import SearchContainer from '../components/tabbar/SearchContainer'
 import ShopCarContainer from '../components/tabbar/ShopCarContainer'
+import NewsList from '../components/news/NewsList'
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ export default new Router({
       path: '/search',
       name: 'SearchContainer',
       component: SearchContainer
+    },
+    {
+      path: '/home/newsList',
+      name: 'NewsList',
+      component: NewsList
     }
   ],
   linkActiveClass: 'mui-active'
