@@ -1,10 +1,34 @@
 <script>
+import {Toast} from 'mint-ui'
+
 export default {
   name: 'Comment',
   data () {
-    return {}
+    return {
+      pageIndex: 1,
+      comments: []
+    }
   },
-  methods: {}
+  created () {
+    this.getMoments()
+  },
+  methods: {
+    getMoments () {
+      this.$http.get('/api/getcmments').then(result => {
+        if (result.body.status === 0) {
+          // this.comments = result.body.message
+          // 评论数据加载更多时进行数据追加
+          this.comments = this.comments.concat(result.body.message)
+        } else {
+          Toast('获取评论失败')
+        }
+      })
+    },
+    getMore () {
+      this.pageIndex++
+      this.getMoments()
+    }
+  }
 }
 </script>
 
@@ -52,6 +76,6 @@ textarea{
         </div>
       </div>
 
-      <mt-button type="danger" size="large" plain>加载更多</mt-button>
+      <mt-button type="danger" size="large" plain @click="getMore">加载更多</mt-button>
     </div>
 </template>
