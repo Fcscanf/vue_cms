@@ -66,9 +66,9 @@ export default {
 <!--  头部的轮播图-->
     <div>
       <mt-swipe :auto="4000">
-        <mt-swipe-item>1</mt-swipe-item>
-        <mt-swipe-item>2</mt-swipe-item>
-        <mt-swipe-item>3</mt-swipe-item>
+        <mt-swipe-item><img src="../../img/home_head1.jpg"></mt-swipe-item>
+        <mt-swipe-item><img src="../../img/home_head2.jpg"></mt-swipe-item>
+        <mt-swipe-item><img src="../../img/home_head3.jpg"></mt-swipe-item>
 <!--
 使用vue遍历photo中的图片数据
  <mt-swipe-item :key="item" v-for="item in photo">
