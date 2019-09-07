@@ -1,4 +1,7 @@
 <script>
+// 导入评论子组件
+import comment from '../subcomponents/Comment.vue'
+
 export default {
   name: 'NewsInfo',
   data () {
@@ -9,7 +12,10 @@ export default {
       newInfo: {}
     }
   },
-  methods: {}
+  methods: {},
+  components: {
+    'comment-box': comment
+  }
 }
 </script>
 
@@ -35,14 +41,18 @@ export default {
 
 <template>
     <div class="newsInfo-container">
+<!--      标题-->
       <h1 class="title">新闻标题</h1>
       <p class="subtitle">
         <span>发表时间:2019.9.19 12:00</span>
         <span>点击：0次</span>
       </p>
       <hr>
+<!--      内容区-->
       <div class="content">
         <p>今天你吃饭了没</p>
       </div>
+<!--      评论区-->
+      <comment-box></comment-box>
     </div>
 </template>

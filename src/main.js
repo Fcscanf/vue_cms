@@ -7,7 +7,7 @@ import router from './router'
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
 // 按需导入MintUI的组件
-import {Header, Swipe, SwipeItem} from 'mint-ui'
+import {Header, Swipe, SwipeItem, Button} from 'mint-ui'
 import 'mint-ui/lib/style.css'
 // 导入时间插件
 import moment from 'moment'
@@ -20,6 +20,7 @@ Vue.use(moment)
 Vue.component(Header.name, Header)
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
+Vue.component(Button.name, Button)
 // 配置全局过滤器
 Vue.filter('dateFormat', function (dataStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
   moment(dataStr).format(pattern)
