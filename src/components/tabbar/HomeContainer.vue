@@ -14,7 +14,7 @@ export default {
   methods: {
     getPhoto () {
       // 获取图片的方法
-      this.$http.get('http://vue.studyit.io/api/getlunbo').then(result => {
+      this.$http.get('api/getlunbo').then(result => {
         console.log(result.body)
         if (result.body.status === 0) {
           Toast('图片加载成功！')

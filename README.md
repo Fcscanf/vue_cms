@@ -39,3 +39,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ``` bash
 cnpm i vue-resource -S
 ```
+7. 绘制新闻资讯界面使用MUI中的media-list.html

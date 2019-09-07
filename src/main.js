@@ -17,6 +17,8 @@ Vue.component(Header.name, Header)
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
 
+// 设置vue-resource请求的根路径
+Vue.http.options.root = 'http://vue.studyit.io'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
