@@ -38,7 +38,7 @@ export default {
     <div>
       <ul class="mui-table-view">
         <li class="mui-table-view-cell mui-media">
-          <a href="javascript:;">
+          <router-link to="/home/newsInfo/">
             <img class="mui-media-object mui-pull-left" src="https://cdn.nlark.com/yuque/0/2019/jpeg/anonymous/1562114802935-504aca79-85ec-479f-a23e-b5a68e3899ad.jpeg?x-oss-process=image/resize,m_fill,w_64,h_64/format,png">
             <div class="mui-media-body">
               幸福
@@ -46,7 +46,7 @@ export default {
               <span class='mui-ellipsis-p'>发表时间:2019.9.7 12:00</span>
               <span class='mui-ellipsis-p'>点击次数:0次</span>
             </div>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>

@@ -44,3 +44,7 @@ cnpm i vue-resource -S
 ```bash
 cnpm i moment -S
 ```
+9. 实现新闻资讯列表点击查看新闻详情
+- 把列表的每一项改为路由链接，同时在跳转时添加唯一的ID标识符
+- 创建新闻详情组件页面 NewsInfo.vue
+- 在路由模块，将新闻的路由地址和组件对应
