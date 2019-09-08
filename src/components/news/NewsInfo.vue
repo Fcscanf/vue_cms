@@ -1,6 +1,6 @@
 <script>
 // 导入评论子组件
-import comment from '../subcomponents/Comment.vue'
+import comment from '../subcomponents/Comment'
 
 export default {
   name: 'NewsInfo',

@@ -23,8 +23,10 @@ Vue.component(SwipeItem.name, SwipeItem)
 Vue.component(Button.name, Button)
 // 配置全局过滤器
 Vue.filter('dateFormat', function (dataStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
-  moment(dataStr).format(pattern)
+  return moment(dataStr).format(pattern)
 })
+// 全局设置post请求的数据格式
+Vue.http.options.emulateJSON = true
 // 设置vue-resource请求的根路径
 Vue.http.options.root = 'http://vue.studyit.io'
 Vue.config.productionTip = false

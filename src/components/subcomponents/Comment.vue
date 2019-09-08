@@ -6,7 +6,8 @@ export default {
   data () {
     return {
       pageIndex: 1,
-      comments: []
+      comments: [],
+      msg: ''
     }
   },
   created () {
@@ -27,6 +28,18 @@ export default {
     getMore () {
       this.pageIndex++
       this.getMoments()
+    },
+    postComment () {
+      if (this.msg.trim().length === 0) {
+        return Toast('评论内容不能为空')
+      }
+      var cmt = {
+        user_name: 'Fcant',
+        add_time: Date.now(),
+        content: this.msg.trim()
+      }
+      this.comments.unshift(cmt)
+      this.msg = ''
     }
   }
 }
@@ -35,6 +48,7 @@ export default {
 <style scoped>
 .h3{
   font-size: 18px;
+  color: brown;
 }
 textarea{
   font-size: 14px;
@@ -61,9 +75,9 @@ textarea{
     <div class="cmt-container">
       <h3>发表内容</h3>
       <hr>
-      <textarea placeholder="请输入要评论的内容" maxlength="120"></textarea>
+      <textarea placeholder="请输入要评论的内容" maxlength="120" v-model="msg"></textarea>
 
-      <mt-button type="primary" size="large">发表评论</mt-button>
+      <mt-button type="primary" size="large" @click="postComment">发表评论</mt-button>
 <!--      评论内容区域-->
       <div class="cmt-list">
         <div class="cmt-item">
@@ -72,6 +86,16 @@ textarea{
           </div>
           <div class="cmt-body">
             你好
+          </div>
+        </div>
+      </div>
+      <div class="cmt-list" v-for="(item, i) in comments" :key="item.add_time">
+        <div class="cmt-item">
+          <div class="cmt-title">
+            第{{i+1}}楼&nbsp;&nbsp;{{item.user_name}}；发表时间{{item.add_time | dateFormat}}
+          </div>
+          <div class="cmt-body">
+            {{item.content}}
           </div>
         </div>
       </div>
