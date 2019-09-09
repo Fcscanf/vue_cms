@@ -96,3 +96,6 @@ mui('.mui-scroll-wrapper').scroll({
 ---
 ## 6.图片列表加载使用懒加载技术
 - 使用MintUI提供的`lazy-load`
+---
+## 7.购物车使用vuex
+- 使用命令`cnpm i vuex -S`安装vuex

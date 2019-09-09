@@ -13,6 +13,51 @@ import 'mint-ui/lib/style.css'
 import moment from 'moment'
 // 导入vue-resource
 import VueResource from 'vue-resource'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+var store = new Vuex.Store({
+  // this.$store.state.***
+  state: {
+    // 定义购物车数组存储商品对象
+    car: []
+  },
+  // this.$store.commit('方法的名称', '按需传递唯一的参数')
+  mutations: {
+    addToCar(state, goodsinfo){
+      // 点击加入购物车，把商品信息保存到store的car中
+      // 1.如果购物车有商品，只需要更新数量
+      // 2.如果没有，直接将商品push到car中
+
+      // 假设购物车没有对应的商品
+      var flag = false
+
+      state.car.some(item => {
+        if (item.id == goodsinfo.id){
+          item.count += parseInt(goodsinfo.count)
+          flag = true
+          return true
+        }
+      })
+
+      // 如果遍历没有商品，则将商品添加到car数组中
+      if (!flag) {
+        state.car.push(goodsinfo)
+      }
+
+    }
+  },
+  // this.$store.getters.***
+  getters: {
+    // 相当于计算属性，也相当于filters
+    getAllCount(state) {
+      var c = 0;
+      state.car.forEach(item => {
+        c += item.count;
+      });
+      return c;
+    },
+  }
+})
 // 安装vue-resource
 Vue.use(VueResource)
 // 安装时间插件
@@ -37,6 +82,8 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  // 挂载store状态管理对象
+  store,
   components: { App },
   template: '<App/>'
 })
