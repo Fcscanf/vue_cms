@@ -15,6 +15,10 @@ import moment from 'moment'
 import VueResource from 'vue-resource'
 import Vuex from 'vuex'
 Vue.use(Vuex)
+
+// 启动时从本地localStorage读取保存的购物车数据
+var car = JSON.parse(localStorage.getItem('car') || '[]')
+
 var store = new Vuex.Store({
   // this.$store.state.***
   state: {
@@ -44,6 +48,8 @@ var store = new Vuex.Store({
         state.car.push(goodsinfo)
       }
 
+      // 使用本地的localStorage对购物车数据进行持久化存储
+      localStorage.setItem('car', JSON.stringify(state.car))
     }
   },
   // this.$store.getters.***
