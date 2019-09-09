@@ -6,8 +6,10 @@ import router from './router'
 // 导入MUI
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
+// 全部导入MintUI的组件
+import MintUI from 'mint-ui'
 // 按需导入MintUI的组件
-import {Header, Swipe, SwipeItem, Button, Lazyload} from 'mint-ui'
+// import {Header, Swipe, SwipeItem, Button, Lazyload} from 'mint-ui'
 import 'mint-ui/lib/style.css'
 // 导入时间插件
 import moment from 'moment'
@@ -50,6 +52,17 @@ var store = new Vuex.Store({
 
       // 使用本地的localStorage对购物车数据进行持久化存储
       localStorage.setItem('car', JSON.stringify(state.car))
+    },
+    updateGoodsInfo(state, goodsinfo) {
+      // 修改购物车中的商品数量
+      state.car.some(item => {
+        if (item.id == goodsinfo.id) {
+          item.count = parseInt(goodsinfo.count)
+          return true;
+        }
+      })
+      // 修改后的数据作更新保存
+      localStorage.setItem('car', JSON.stringify(state.car))
     }
   },
   // this.$store.getters.***
@@ -62,18 +75,26 @@ var store = new Vuex.Store({
       });
       return c;
     },
+    getGoodsCount(state) {
+      var o = {};
+      state.car.forEach(item => {
+        o[item.id] = item.count
+      });
+      return o;
+    }
   }
 })
 // 安装vue-resource
 Vue.use(VueResource)
 // 安装时间插件
 Vue.use(moment)
+Vue.use(MintUI)
 // 安装MintUI的懒加载组件
-Vue.use(Lazyload)
-Vue.component(Header.name, Header)
-Vue.component(Swipe.name, Swipe)
-Vue.component(SwipeItem.name, SwipeItem)
-Vue.component(Button.name, Button)
+// Vue.use(Lazyload)
+// Vue.component(Header.name, Header)
+// Vue.component(Swipe.name, Swipe)
+// Vue.component(SwipeItem.name, SwipeItem)
+// Vue.component(Button.name, Button)
 // 配置全局过滤器
 Vue.filter('dateFormat', function (dataStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
   return moment(dataStr).format(pattern)
