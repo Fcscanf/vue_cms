@@ -1,7 +1,11 @@
 <template>
   <div id="app" class="app-container">
 <!--    顶部-->
-    <mt-header fixed title="Fcant开发总部"></mt-header>
+    <mt-header fixed title="Fcant开发总部">
+      <span slot="left" @click="goBack" v-show="flag">
+        <mt-button icon="back">返回</mt-button>
+      </span>
+    </mt-header>
 <!--    内容-->
 
 <!--    底部-->
@@ -33,7 +37,29 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+    data() {
+      return{
+          flag: false
+      }
+    },
+    methods:{
+      goBack(){
+          this.$router.go(-1);
+      }
+    },
+    created() {
+        this.flag = this.$route.path === '/home' ? false : true;
+    },
+    watch: {
+      '$route.path':function (newVal) {
+          if (newVal === '/home') {
+              this.flag = false;
+          } else {
+              this.flag = true;
+          }
+      }
+    }
 }
 </script>
 
