@@ -29,6 +29,16 @@ h1{
   display: flex;
   align-items: center;
 }
+.pay{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.red{
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+}
 .info{
   display: flex;
   flex-direction: column;
@@ -61,8 +71,12 @@ h1{
 <!--      结算区域-->
       <div class="mui-card">
         <div class="mui-card-content">
-          <div class="mui-card-content-inner">
-            这是一个最简单的卡片视图控件；卡片视图常用来显示完整独立的一段信息，比如一篇文章的预览图、作者信息、点赞数量等
+          <div class="mui-card-content-inner pay">
+            <div class="left">
+              <p>总计(不含运费)</p>
+              <p>已勾选商品 <span class="red">0</span> 件，总价 $0</p>
+            </div>
+            <mt-button type="danger">去结算</mt-button>
           </div>
         </div>
       </div>
