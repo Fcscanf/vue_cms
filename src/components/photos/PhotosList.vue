@@ -6,9 +6,15 @@ export default {
   name: 'PhotosList',
   data () {
     return {
+        photosList: [],
+        img: {
+            id: '',
+            img_url: ''
+        }
     }
   },
   created () {
+    this.getPhotosList()
   },
   // 当组件的DOM结构渲染好并放到页面中后，会执行这个钩子函数，如果要操作DOM元素，一般在 mountd 中执行
   mounted () {
@@ -18,7 +24,21 @@ export default {
         deceleration: 0.0005
     })
   },
-  methods: {}
+  methods: {
+      getPhotosList()
+      {
+          this.img = {
+              id: '1',
+              img_url: '../../img/photo_list/photo_list1.jpg'
+          }
+          this.photosList.unshift(this.img)
+          this.img = {
+              id: '2',
+              img_url: '../../img/photo_list/photo_list2.jpg'
+          }
+          this.photosList.unshift(this.img)
+      }
+  }
 }
 </script>
 
@@ -26,6 +46,40 @@ export default {
   *{
     touch-action: pan-y;
   }
+
+  img[lazy=loading] {
+    width: 40px;
+    height: 300px;
+    margin: auto;
+  }
+
+  img{
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  li{
+    background-color: #8f8f94;
+    text-align: center;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .info{
+    color: white;
+    text-align: left;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .info-title{
+    font-size: 14px;
+  }
+
+  .info-body{
+    font-size: 13px;
+  }
+
 </style>
 
 <template>
@@ -56,5 +110,15 @@ export default {
         </div>
 
       </div>
+<!--      图片列表区域-->
+      <ul>
+        <li v-for="item in photosList" :key="item.id">
+          <img v-lazy="item.img_url" :src="item.img_url">
+          <div class="info">
+            <h1 class="info-title"></h1>
+            <div class="info-body"></div>
+          </div>
+        </li>
+      </ul>
     </div>
 </template>
